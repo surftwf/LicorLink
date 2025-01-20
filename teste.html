@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LicorLink</title>
+    <link rel="icon" href="Imagens/link-logo.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Cabeçalho fixo no topo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px; /* Diminui o padding para deixar o cabeçalho mais compacto */
+            border-bottom: 2px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 60px; /* Define uma altura fixa para o cabeçalho */
+        }
+
+        /* Logo */
+        header img {
+            max-width: 120px; /* Diminui o tamanho do logo */
+            height: auto;
+        }
+
+        /* Ícones no cabeçalho */
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icons img {
+            width: 40px; /* Tamanho dos ícones */
+            height: auto;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        /* Menu Lateral */
+        .menu-lateral {
+            position: fixed;
+            top: 60px; /* Inicia logo abaixo do header */
+            left: 0;
+            
+            background-color: #ffffff;
+            border-right: 2px solid #ddd;
+            height: calc(100vh - 60px); /* Ajusta a altura do menu lateral para não sobrepor o cabeçalho */
+            padding-top: 20px;
+            z-index: 999;
+        }
+
+        .menu-lateral img {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+        .menu-lateral .menu-item:hover {
+            background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+            transition: background-color 0.3s ease; /* Suaviza a transição */
+        }
+
+        .menu-lateral img:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            margin-left: 240px; /* Deixa espaço para o menu lateral */
+            padding: 20px;
+            margin-top: 70px; /* Deixa espaço para o header fixo */
+            width: calc(100% - 240px); /* Ajusta a largura para não sobrepor o menu lateral */
+            box-sizing: border-box;
+        }
+
+        /* Rodapé */
+        
+    </style>
+</head>
+<body>
+
+<!-- Cabeçalho com logo e botões -->
+<header>
+    <div>
+        <img src="Imagens/licor-link.png" alt="LicorLink">
+    </div>
+    <div class="header-icons">
+        <img src="Imagens/sino.png" alt="Notificações">
+        <img src="Imagens/perfil.png" alt="Perfil">
+    </div>
+</header>
+
+<!-- Menu Lateral -->
+<div class="menu-lateral">
+    <p>></p>
+    <img src="Imagens/Novo Pedido.png" alt="Novo Pedido">
+    <img src="Imagens/Favoritos.png" alt="Favoritos">
+    <img src="Imagens/Estoque.png" alt="Estoque">
+    <img src="Imagens/Histórico.png" alt="Histórico">
+    <img src="Imagens/Financeiro.png"  alt="Financeiro">
+    <img src="Imagens/Cadastro Produto.png"  alt="Cadastro Produto">
+    <img src="Imagens/Ajuda.png"  alt="Ajuda">
+</div>
+
+<!-- Conteúdo Principal -->
+<div class="container">
+    <section id="sobre">
+        <h2>Adega</h2>
+        <p>Na LicorLink, somos especialistas em organização e administração de estoque. Nossa missão é ajudar empresas a otimizar seus processos de gestão, garantindo eficiência e controle em cada etapa.</p>
+    </section>
+
+    <section id="servicos">
+        <h2>Serviços</h2>
+        <div class="service">
+            <h3>Gestão de Estoque</h3>
+            <p>Implementamos soluções personalizadas para monitorar e gerenciar seu estoque de forma eficaz.</p>
+        </div>
+        <div class="service">
+            <h3>Consultoria</h3>
+            <p>Nossa equipe de especialistas oferece consultoria para identificar melhorias em sua gestão de estoque.</p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações sobre nossos serviços e como podemos ajudar sua empresa.</p>
+        <p>Email: contato@licorlink.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+    </section>
+</div>
+
+<!-- Rodapé -->
+<footer>
+    
+</footer>
+
+</body>
+</html>
