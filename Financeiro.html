@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LicorLink</title>
+    <link rel="icon" href="Imagens/link-logo.png" type="image/png">
+    <style>
+       
+       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #bbbbbb; /* Cinza claro */
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        }
+
+
+        /* Cabeçalho fixo no topo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #bbbbbb;
+            padding: 10px 20px;
+            border-bottom: 2px solid #bbbbbb;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 60px;
+        }
+
+        /* Logo */
+        header img {
+            max-width: 140px;
+            height: auto;
+        }
+
+        /* Ícones no cabeçalho */
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icons img {
+            width: 40px;
+            height: auto;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        /* Botão de Controle */
+        .toggle-button {
+            position: fixed;
+            top: 110px;
+            left: 10px;
+            background-color: #bbbbbb;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        /* Menu Lateral */
+        .menu-lateral {
+            position: fixed;
+            top: 90px; /* Inicia abaixo do cabeçalho */
+            left: 0;
+            background-color: #bbbbbb;
+           
+            height: calc(100vh - 60px); /* Preenche a altura abaixo do cabeçalho */
+            padding-top: 60px; /* Espaço para o botão de controle */
+            width: 40px;
+            overflow: hidden;
+            transition: width 0.3s ease;
+        }
+
+        .menu-lateral.expanded {
+            width: 200px;
+        }
+
+        .menu-lateral .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-lateral img {
+            width: 19px; /* Ajusta o tamanho das imagens */
+            height: 20px;
+        }
+
+        .menu-lateral .description {
+            display: none;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .menu-lateral.expanded .description {
+            display: inline;
+        }
+
+        /* Efeito hover nos botões do menu lateral */
+        .menu-lateral .menu-item:hover {
+            background-color: #d46d0c; /* Cor de fundo ao passar o mouse */
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            margin-left: 80px;
+            padding: 20px;
+            margin-top: 70px;
+            width: calc(100% - 80px);
+            box-sizing: border-box;
+            transition: margin-left 0.3s ease;
+        }
+
+        .menu-lateral.expanded ~ .container {
+            margin-left: 220px;
+            width: calc(100% - 220px);
+        }
+
+        /* Ajuste do espaçamento das seções */
+        section {
+            margin-bottom: 40px; /* Espaçamento entre as seções */
+        }
+
+        section h2 {
+            margin-bottom: 10px; /* Espaçamento entre o título e o conteúdo */
+        }
+
+        .service {
+            margin-bottom: 20px; /* Espaçamento entre os itens de serviço */
+        }
+        #botaoMais {     
+            position: fixed; 
+            bottom: 20px; 
+            right: 600px; 
+            width: 60px; 
+            height: 60px; 
+            cursor: pointer; 
+            box-shadow: 0px 4px 6px #bbbbbb;
+        }
+        #pesquisaAdega {
+        width: 50%;
+        padding: 10px; 
+        margin-top: 10px; 
+        border: 1px solid #747272; 
+        border-radius: 4px;
+        background-color: #cecaca;
+        }
+
+        #botaoFiltrar {
+         background-color: orange;
+         color: white;
+         border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-left: 200px;
+        }
+        .menu-lateral a {
+        text-decoration: none; /* Remove o sublinhado dos links */
+            color: inherit; /* Mantém a cor do texto do link */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <div>
+        <a href="Home.html">
+            <img src="Imagens/licor-link.png" alt="LicorLink">
+            </a>
+    </div>
+    <div class="header-icons">
+        <img src="Imagens/sino.png" alt="Notificações">
+        <img src="Imagens/perfil.png" alt="Perfil">
+    </div>
+</header>
+
+<!-- Botão de Controle -->
+<button class="toggle-button" id="toggleMenu">></button>
+
+<!-- Menu Lateral -->
+<div class="menu-lateral" id="menu">
+    <div class="menu-item">
+        <a href="Novo Pedido.html">
+        <img src="Imagens/Novo Pedido.png" alt="Novo Pedido">
+        <span class="description">Novo Pedido</span>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="Favoritos.html">
+        <img src="Imagens/Favoritos.png" alt="Favoritos">
+        <span class="description">Favoritos</span>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="Estoque.html">
+        <img src="Imagens/Estoque.png" alt="Estoque">
+        <span class="description">Estoque</span>
+    </a>
+    </div>
+    <div class="menu-item">
+        <a href="Histórico.html">
+        <img src="Imagens/Histórico.png" alt="Histórico">
+        <span class="description">Histórico</span>
+    </a>
+    </div>
+    <div class="menu-item">
+        <a href="Financeiro.html">
+        <img src="Imagens/Financeiro.png" alt="Financeiro">
+        <span class="description">Financeiro</span>
+    </a>
+    </div>
+
+    <div class="menu-item">
+        <a href="Cadastro Produto.html">
+        <img src="Imagens/Cadastro Produto.png" alt="Cadastro Produto">
+        <span class="description">Cadastro Produto</span>
+    </a>
+    </div>
+    <div class="menu-item">
+        <a href="Ajuda.html">
+        <img src="Imagens/Ajuda.png" alt="Ajuda">
+        <span class="description">Ajuda</span>
+        </a>
+
+    </div>
+</div>
+
+<!-- Conteúdo Principal -->
+<div class="container">
+    <section id="sobre">
+        <h2>Financeiro</h2>
+        <input type="text" id="pesquisaAdega" placeholder="Pesquisar">
+        <button  id="botaoFiltrar" >
+             Filtrar
+         </button>
+         
+    </section>
+    <!-- Botão "Mais" no canto inferior direito -->
+    <img  id="botaoMais"  src="Imagens/botão mais.png" alt="Botão Mais"  >
+
+</div>
+
+<script>
+    const menu = document.getElementById('menu');
+    const toggleButton = document.getElementById('toggleMenu');
+
+    toggleButton.addEventListener('click', () => {
+        menu.classList.toggle('expanded');
+        toggleButton.textContent = menu.classList.contains('expanded') ? '<' : '>';
+    });
+</script>
+
+</body>
+</html>
